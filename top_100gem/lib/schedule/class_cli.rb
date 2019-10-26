@@ -2,7 +2,6 @@
 class Schedule::Class_Cli
 
     def call
-       
         puts "Here you can discover the Top 100 movies as decided by IMDb.com"
         start
     end
