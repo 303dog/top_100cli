@@ -12,7 +12,7 @@ class Schedule::Class_Cli
         puts ""
         list_rankings
         puts ""
-        puts "Type your choice below and press 'enter'"
+        puts "        Type your choice below and press 'enter'"
         puts ""
         input = gets.strip.to_i
           if 1.upto(100).include?(input)
@@ -39,11 +39,18 @@ class Schedule::Class_Cli
     end
 
     def list_rankings
-     puts 1.upto(20)    {|i| print "#{i} "}
-     puts 21.upto(40)   {|i| print "#{i} "}
-     puts 41.upto(60)   {|i| print "#{i} "}
-     puts 61.upto(80)   {|i| print "#{i} "}
-     puts 81.upto(100)  {|i| print "#{i} "}
+      (01..22).each   {|i| print "#{i} "}
+      puts ""
+      (23..41).each   {|i| print "#{i} "}
+      puts ""
+      (42..60).each   {|i| print "#{i} "}
+      puts ""
+      (61..79).each   {|i| print "#{i} "}
+      puts ""
+      (80..98).each   {|i| print "#{i} "}
+      puts ""
+      (99..100).each  {|i| print "#{i} "}
+      puts ""
     end
 
 end
