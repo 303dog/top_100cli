@@ -8,9 +8,9 @@ class Schedule::Class_Cli
 
     def start
         puts ""
-        puts "Pick a number from the list provided to see the ranking!"
+        puts "Pick a number from the list provided to see what movie placed!"
         puts ""
-        list_rankings
+        list_places
         puts ""
         puts "        Type your choice below and press 'enter'"
         puts ""
@@ -24,7 +24,7 @@ class Schedule::Class_Cli
             puts ""
             start
           end
-        puts "Hit any key to quit or 'Y' to see another ranking"
+        puts "Hit any key to quit or 'Y' to see another placing"
           input = gets.strip.downcase
           if input == "y"
             puts ""
@@ -38,7 +38,7 @@ class Schedule::Class_Cli
           end
     end
 
-    def list_rankings
+    def list_places
       (01..22).each   {|i| print "#{i} "}
       puts ""
       (23..41).each   {|i| print "#{i} "}
