@@ -15,7 +15,8 @@ class Schedule::Class_Cli
     input = gets.strip.to_i
     if 1.upto(100).include?(input)
       puts "The results are in....."
-      Schedule::Scraper.new.make_movies(input)
+     # Schedule::Scraper.new.make_movies(input)
+     Schedule::Movies.new.create_movie_by_name(input)
     else
       puts "I dont know that one.. Please pick a year from the list provided"
       puts ""
