@@ -1,0 +1,24 @@
+PATH
+  remote: .
+  specs:
+    top_100 (0.1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    mini_portile2 (2.4.0)
+    nokogiri (1.10.9)
+      mini_portile2 (~> 2.4.0)
+    rake (10.5.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 2.0)
+  nokogiri
+  rake (~> 10.0)
+  top_100!
+
+BUNDLED WITH
+   2.1.4

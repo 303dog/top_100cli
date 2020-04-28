@@ -1,6 +1,8 @@
 # top_100cli
 CLI project providing the top 100 movies
 
+gem install top_100
+
 After cloning the top_100cli repo (git@github.com:303dog/top_100cli.git) into your editor, type 'cd top_100gem' into the terminal and press enter to access the correct file.  Then type 'bin/console' and press enter to start the program.
 
 cd top_100gem

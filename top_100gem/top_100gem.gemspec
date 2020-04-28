@@ -1,11 +1,11 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "top_100gem/version"
+require_relative "./lib/schedule/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "top_100gem"
-  spec.version       = Top100gem::VERSION
+  spec.name          = "top_100"
+  spec.version       = Schedule::VERSION
   spec.authors       = ["Paul Beckwith"]
   spec.email         = ["303dog@gmail.com"]
 
@@ -38,5 +38,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development "nokogiri"
+  spec.add_development_dependency "nokogiri"
 end
