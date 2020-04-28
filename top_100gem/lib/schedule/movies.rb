@@ -7,7 +7,7 @@ class Schedule::Movies < Schedule::Scraper
     def create_movie_by_name(input)
         #user input to select movie?
         Schedule::Scraper.new.make_movies(input)
-        binding.pry
+        #binding.pry
     end
 
     def self.create_from_collection

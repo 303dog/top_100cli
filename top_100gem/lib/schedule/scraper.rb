@@ -11,13 +11,13 @@ require 'open-uri'
   def scrape_movies_index
       get_page.css(".lister-item.mode-detail").collect do |node|
       {
-        title:    node.css("h3").text.strip.chomp("\n").strip.gsub("\n","").gsub("  "," "),
-        run_time: node.css(".runtime").text,
-        genre:    node.css(".genre").text.strip,
-        summary:  node.css(".lister-item-content p")[1].text.strip,
-        ranking:  node.css(".ipl-rating-star__rating").first.text,
-        cast:     node.css(".text-muted.text-small")[1].text.split("Stars:")[1].strip.gsub("\n","").gsub("  "," "),
-        director: node.css(".text-muted.text-small")[1].text.split("Stars:")[0].strip.chomp("|").strip.gsub("\n","").gsub("  "," ")
+        TITLE:    node.css("h3").text.strip.chomp("\n").strip.gsub("\n","").gsub("  "," "),
+        LENGTH: node.css(".runtime").text,
+        GENRE:    node.css(".genre").text.strip,
+        SUMMARY:  node.css(".lister-item-content p")[1].text.strip,
+        RANK:  node.css(".ipl-rating-star__rating").first.text,
+        CAST:     node.css(".text-muted.text-small")[1].text.split("Stars:")[1].strip.gsub("\n","").gsub("  "," "),
+        DIRECTORY: node.css(".text-muted.text-small")[1].text.split("Stars:")[0].strip.chomp("|").strip.gsub("\n","").gsub("  "," ")
       }
     end
   end
@@ -27,6 +27,6 @@ require 'open-uri'
     puts "---------------##{i} of the Top 100----------------"
     movie = scrape_movies_index[i-=1]
     puts ""
-    puts y movie
+    Pry::ColorPrinter.pp(movie)
   end
 end
