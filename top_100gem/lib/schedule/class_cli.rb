@@ -10,20 +10,22 @@ class Schedule::Class_Cli
     puts ""
     list_places
     puts ""
-    puts "        Type your choice below and press 'enter'"
+    puts "        Type the number of your choice (1,2 or 3) below and press 'enter'"
     puts ""
     input = gets.strip.to_i
-    if 1.upto(100).include?(input)
-      puts "The results are in....."
-     # Schedule::Scraper.new.make_movies(input)
-     Schedule::Movies.new.create_movie_by_name(input)
+    if 1.upto(3).include?(input)
+      #puts "The results are in....."
+      Schedule::Movies.option_1(input)
+     #Schedule::Scraper.new.make_movies(input)
+     #Schedule::Movies.new.create_movie_by_name(input)
     else
-      puts "I dont know that one.. Please pick a year from the list provided"
+      puts "I dont know that one.. Please pick a ranking from the list provided"
       puts ""
       puts ""
       start
     end
-    puts "Hit any key to quit or 'Y' to see another placing"
+    puts ""
+    puts "Please pick a ranking number to see which movie placed!"
     input = gets.strip.downcase
     if input == "y"
       puts ""
@@ -36,18 +38,25 @@ class Schedule::Class_Cli
       exit
     end
   end
+
   def list_places
-    (01..22).each   {|i| print "#{i} "}
-    puts ""
-    (23..41).each   {|i| print "#{i} "}
-    puts ""
-    (42..60).each   {|i| print "#{i} "}
-    puts ""
-    (61..79).each   {|i| print "#{i} "}
-    puts ""
-    (80..98).each   {|i| print "#{i} "}
-    puts ""
-    (99..100).each  {|i| print "#{i} "}
-    puts ""
+    puts "1)     Top Ranking Titles"
+    puts "2)     Not the Best/ Not the Worst"
+    puts "3)     Bottom Ranking Titles"
   end
+
+#  def list_places
+#    (01..22).each   {|i| print "#{i} "}
+#    puts ""
+#    (23..41).each   {|i| print "#{i} "}
+#    puts ""
+#    (42..60).each   {|i| print "#{i} "}
+#    puts ""
+#    (61..79).each   {|i| print "#{i} "}
+#    puts ""
+#    (80..98).each   {|i| print "#{i} "}
+#    puts ""
+#    (99..100).each  {|i| print "#{i} "}
+#    puts ""
+#  end
 end
