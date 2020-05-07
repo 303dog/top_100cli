@@ -1,12 +1,14 @@
 
 class Schedule::Class_Cli
+
   def call
+    puts ""
     puts "Here you can discover the Top 100 movies as decided by IMDb.com"
     start
   end
   def start
     puts ""
-    puts "Pick a number from the list provided to see what movie placed!"
+    puts "MAIN MENU"
     puts ""
     list_places
     puts ""
@@ -14,10 +16,7 @@ class Schedule::Class_Cli
     puts ""
     input = gets.strip.to_i
     if 1.upto(3).include?(input)
-      #puts "The results are in....."
       Schedule::Movies.option_1(input)
-     #Schedule::Scraper.new.make_movies(input)
-     #Schedule::Movies.new.create_movie_by_name(input)
     else
       puts "I dont know that one.. Please pick a ranking from the list provided"
       puts ""
@@ -28,8 +27,8 @@ class Schedule::Class_Cli
     puts "Please pick a ranking number to see which movie placed!"
     input = gets.strip.to_i
     Schedule::Scraper.new.make_movies(input)
-    puts "To return back to the main menu please press *B*"
-    puts "To quit the program please press *enter*"
+    puts "To return back to the main menu please press...     *B*"
+    puts "To quit the program please press...                 *enter*"
     input = gets.strip.downcase
     if input == "b"
       puts ""
@@ -37,7 +36,7 @@ class Schedule::Class_Cli
       start
     else
       puts ""
-      puts "See you soon!"
+      puts "See you soon, Have a great day!!"
       puts ""
       exit
     end
@@ -48,19 +47,4 @@ class Schedule::Class_Cli
     puts "2)     Not the Best/ Not the Worst"
     puts "3)     Bottom Ranking Titles"
   end
-
-#  def list_places
-#    (01..22).each   {|i| print "#{i} "}
-#    puts ""
-#    (23..41).each   {|i| print "#{i} "}
-#    puts ""
-#    (42..60).each   {|i| print "#{i} "}
-#    puts ""
-#    (61..79).each   {|i| print "#{i} "}
-#    puts ""
-#    (80..98).each   {|i| print "#{i} "}
-#    puts ""
-#    (99..100).each  {|i| print "#{i} "}
-#    puts ""
-#  end
 end
