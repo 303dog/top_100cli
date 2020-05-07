@@ -26,7 +26,9 @@ class Schedule::Class_Cli
     end
     puts ""
     puts "Please pick a ranking number to see which movie placed!"
-    input = gets.strip.downcase
+    input = gets.strip.to_i
+    Schedule::Scraper.new.make_movies(input)
+    #input = gets.strip.downcase
     if input == "y"
       puts ""
       puts "----------Alrighty then...-----------"
