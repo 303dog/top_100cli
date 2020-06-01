@@ -2,8 +2,8 @@
 
 require_relative '../lib/schedule'
 
-Schedule::Class_Cli.new.call
-Schedule::Scraper.new.get_page
-Schedule::Movie.new
-require "irb"
-IRB.start(__FILE__)
+#Schedule::Class_Cli.new.call
+#Schedule::Scraper.new.get_page
+#Schedule::Movie.new
+
+Pry.start

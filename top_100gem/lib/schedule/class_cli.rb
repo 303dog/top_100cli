@@ -2,6 +2,7 @@
 class Schedule::Class_Cli
 
   def call
+    Schedule::Scraper.new.scrape_movies_index
     puts ""
     puts "Here you can discover the Top 100 movies as decided by IMDb.com"
     start
@@ -17,7 +18,6 @@ class Schedule::Class_Cli
     puts ""
     input = gets.strip.to_i
     if 1.upto(3).include?(input)
-      Schedule::Scraper.scrape_movies_index
       if input == 1
         puts "Top 25 films by rank"
         (01..25).each    {|i| print "#{i} "}
@@ -40,11 +40,9 @@ class Schedule::Class_Cli
       end
     puts ""
     puts "Please pick a ranking number to see which movie placed!"
-    input = gets.strip.to_i
-    Schedule::Movie.new
-    Schedule::Movie.new.make_movie(input)
-
-
+    input = gets.strip.to_i - 1
+    movie = Schedule::Movie.all[input]
+    print_movie_details(movie)
     puts "To return back to the main menu please press...     *B*"
     puts "To quit the program please press...                 *enter*"
     input = gets.strip.downcase
@@ -65,5 +63,17 @@ class Schedule::Class_Cli
     puts "1)     Top Ranking Titles"
     puts "2)     Not the Best/ Not the Worst"
     puts "3)     Bottom Ranking Titles"
+  end
+
+  def print_movie_details(movie)
+    puts ""
+    puts "The title you chose is #{movie.title}."
+    puts "#{movie.title} is ranked number ##{movie.ranking} on the ImbD.com website."
+    puts "#{movie.title} is considered a #{movie.genre}."
+    puts "This movie is #{movie.length} mins long."
+    puts "#{movie.title} was directed by #{movie.director}."
+    puts "Memebers of the cast include #{movie.cast}."
+    puts "A brief summary: #{movie.summary}."
+    puts ""
   end
 end

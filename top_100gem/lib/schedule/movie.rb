@@ -7,67 +7,22 @@ class Schedule::Movie
 
     @@all = []
 
- #   def scrape_movies_index
- #       get_page.css(".lister-item.mode-detail").collect do |node|
- #       {
- #         TITLE:    node.css("h3").text.strip.chomp("\n").strip.gsub("\n","").gsub("  "," "),
- #         LENGTH:   node.css(".runtime").text,
- #         GENRE:    node.css(".genre").text.strip,
- #         SUMMARY:  node.css(".lister-item-content p")[1].text.strip,
- #         RANK:     node.css(".ipl-rating-star__rating").first.text,
- #         CAST:     node.css(".text-muted.text-small")[1].text.split("Stars:")[1].strip.gsub("\n","").#gsub("  "," "),
- #         DIRECTOR: node.css(".text-muted.text-small")[1].text.split("Stars:")[0].strip.chomp("|").#strip.gsub("\n","").gsub("  "," ")
- #       }  
- #       
- #     end
-    
-
-   # def initialize(scrape_movies_index, get_page)
-   #     @scrape_movies_index = scrape_movies_index
-   #     @get_page = get_page
-   #     @@all << self
-   #    # binding.pry
-   # end
-
-    def title
-        @title ||= node.css("h3").text.strip.chomp("\n").strip.gsub("\n","").gsub("  "," ")
+    def initialize(title, length, genre, summary, rank, cast, director)
+        @title = title
+        @length = length
+        @genre = genre
+        @summary = summary
+        @rank = rank
+        @cast = cast
+        @director = director
+        @@all << self
+       # binding.pry
     end
+     def self.all
+        @@all
+     end
 
-    def length
-        @length ||= node.css(".runtime").text
-    end
-
-    def genre
-        @genre ||= node.css(".genre").text.strip
-    end
-
-    def ranking
-        @ranking ||= node.css(".ipl-rating-star__rating").first.text
-    end
-
-    def cast 
-        @cast ||= node.css(".text-muted.text-small")[1].text.split("Stars:")[1].strip.gsub("\n","").gsub("  "," ")
-    end
-
-    def director
-        @director ||= node.css(".text-muted.text-small")[1].text.split("Stars:")[0].strip.chomp("|").strip.gsub("\n","").gsub("  "," ")
-    end
-
-
-
-
-    def make_movie(i)
-
-        puts ""
-        puts "The title you chose is #{@title}."
-        puts "#{@title} is ranked number ##{@ranking} on the ImbD.com website."
-        puts "#{@title} is considered a #{@genre}."
-        puts "This movie is #{@length} mins long."
-        puts "#{@title} was directed by #{@director}."
-        puts "Memebers of the cast include #{@cast}."
-        puts "A brief summary: #{@summary}."
-        puts ""
-    end
+ 
     
 end
     
