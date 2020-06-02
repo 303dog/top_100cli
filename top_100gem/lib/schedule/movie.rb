@@ -2,7 +2,7 @@ require 'pry'
 
 
 class Schedule::Movie
-#class Movie
+
     attr_accessor :title, :length, :genre, :summary, :ranking, :cast, :director
 
     @@all = []
@@ -38,12 +38,20 @@ class Schedule::Movie
         end
     end
 
-    def self.create_movie_request(input)
-      input =self.all.each {|m| puts "#{m.title}....# #{m.ranking}"}
-      #binding.pry
+    def self.create_first_choice
+      self.all[0..32].each {|m| puts "#{m.title}       
+      ....(#{m.genre})"}
     end
 
+    def self.create_second_choice
+      self.all[32..65].each {|m| puts "#{m.title}      
+      ....(#{m.genre})"}
+    end
 
+    def self.create_third_choice
+      self.all[66..100].each {|m| puts "#{m.title}     
+      ....(#{m.genre})"}
+    end
 
 
     end

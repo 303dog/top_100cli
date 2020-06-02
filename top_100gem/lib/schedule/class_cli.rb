@@ -22,26 +22,24 @@ class Schedule::Class_Cli
   def self.first_choice
     puts ""
     puts "Top 25 films by rank"
-    (01..25).each    {|i| print "#{i} "}
+    puts "Please choose a placing and enter the corrosponding number to learn more about that film." 
+    Schedule::Movie.create_first_choice
   end
 
   def self.second_choice
     puts ""
     puts "These are not the best movies but they're not the worst"
+    puts "Please choose a placing and enter the corrosponding number to learn more about that film." 
     puts ""
-    (26..50).each    {|i| print "#{i} "}
-    puts ""
-    (51..74).each    {|i| print "#{i} "}
+    Schedule::Movie.create_second_choice
   end
 
   def self.third_choice        
     puts ""
-    puts "These are the worst of the #best!"
+    puts "These are the worst of the Best!"
+    puts "Please choose a placing and enter the corrosponding number to learn more about that film."   
     puts ""
-    (75..100).each   {|i| print "#{i} "}
-    puts "Please choose a placing"
-    input = gets.strip.to_i[-1]
-    Schedule::Movie.create_movie_request(input)
+    Schedule::Movie.create_third_choice
   end
 
   def choice_error
