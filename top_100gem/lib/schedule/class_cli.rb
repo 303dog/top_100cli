@@ -16,48 +16,67 @@ class Schedule::Class_Cli
     puts ""
     puts "        Type the number of your choice (1,2 or 3) below and press 'enter'"
     puts ""
-    input = gets.strip.to_i
-    if 1.upto(3).include?(input)
-      if input == 1
-        puts "Top 25 films by rank"
-        (01..25).each    {|i| print "#{i} "}
-      elsif input == 2
-        puts "These are not the best movies but #they're not the worst"
-        puts ""
-        (26..50).each    {|i| print "#{i} "}
-        puts ""
-        (51..74).each    {|i| print "#{i} "}
-      elsif input == 3
-        puts "These are the worst of the #best!"
-        puts ""
-        (75..100).each   {|i| print "#{i} "}
-      else
-    puts ""    
-    puts "I dont know that one.. Please pick a ranking from the list provided"
+    Schedule::Movie.choice_of_three
+  end
+
+  def self.first_choice
     puts ""
+    puts "Top 25 films by rank"
+    (01..25).each    {|i| print "#{i} "}
+  end
+
+  def self.second_choice
+    puts ""
+    puts "These are not the best movies but they're not the worst"
+    puts ""
+    (26..50).each    {|i| print "#{i} "}
+    puts ""
+    (51..74).each    {|i| print "#{i} "}
+  end
+
+  def self.third_choice        
+    puts ""
+    puts "These are the worst of the #best!"
+    puts ""
+    (75..100).each   {|i| print "#{i} "}
+    puts "Please choose a placing"
+    input = gets.strip.to_i[-1]
+    Schedule::Movie.create_movie_request(input)
+  end
+
+  def choice_error
+    puts ""    
+    puts "***        I dont know that one..               ***" 
+    puts "***Please pick a ranking #from the list provided***"
     puts ""
     start
-      end
+  end
+
+
+
+  def last_choice
     puts ""
-    puts "Please pick a ranking number to see which movie placed!"
-    input = gets.strip.to_i - 1
+    puts "Please pick a ranking number to seewhich movie placed!"
+    input = gets.strip.to_i[-1]
     movie = Schedule::Movie.all[input]
     print_movie_details(movie)
-    puts "To return back to the main menu please press...     *B*"
-    puts "To quit the program please press...                 *enter*"
+    puts "To return back to the main menuplease press...     *B*"
+    puts "To quit the program please press..                 *enter*"
+  end
+  def continue_choice(input)
     input = gets.strip.downcase
     if input == "b"
       puts ""
-      puts "----------Alrighty then...-----------"
-      start
+      puts "----------Alrighty then..-----------"
+    start
     else
-      puts ""
-      puts "See you soon, Have a great day!!"
-      puts ""
-      exit
-    end
+     puts ""
+     puts "See you soon, Have a great day!!"
+     puts ""
+    exit
     end
   end
+  
   
   def list_places
     puts "1)     Top Ranking Titles"
@@ -65,9 +84,9 @@ class Schedule::Class_Cli
     puts "3)     Bottom Ranking Titles"
   end
 
-  def print_movie_details(movie)
+  def print_movie_details
     puts ""
-    puts "The title you chose is #{movie.title}."
+     puts "The title you chose is #{movie.title}."
     puts "#{movie.title} is ranked number ##{movie.ranking} on the ImbD.com website."
     puts "#{movie.title} is considered a #{movie.genre}."
     puts "This movie is #{movie.length} mins long."
