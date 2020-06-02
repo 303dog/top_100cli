@@ -8,7 +8,7 @@ class Schedule::Class_Cli
     start
   end
 
-  def self.start
+  def start
     puts ""
     puts "MAIN MENU"
     puts ""
@@ -44,9 +44,9 @@ class Schedule::Class_Cli
 
   def self.choice_error(i)
     puts ""    
-    puts "***          You put (#{i}), which was not an option.           ***" 
-    puts "***                    Let's try this again                     ***"
-    puts "***       Please pick a ranking from the list provided          ***"
+    puts "***          You put (#{i}), which was not an option.               ***" 
+    puts "***                    Let's try this again.                     ***"
+    puts "***       Please pick a ranking from the list provided .         ***"
     puts ""
     list_places
   end
