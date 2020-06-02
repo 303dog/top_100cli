@@ -8,7 +8,7 @@ class Schedule::Class_Cli
     start
   end
 
-  def start
+  def self.start
     puts ""
     puts "MAIN MENU"
     puts ""
@@ -42,15 +42,14 @@ class Schedule::Class_Cli
     Schedule::Movie.create_third_choice
   end
 
-  def choice_error
+  def self.choice_error(i)
     puts ""    
-    puts "***        I dont know that one..               ***" 
-    puts "***Please pick a ranking #from the list provided***"
+    puts "***          You put (#{i}), which was not an option.           ***" 
+    puts "***                    Let's try this again                     ***"
+    puts "***       Please pick a ranking from the list provided          ***"
     puts ""
-    start
+    list_places
   end
-
-
 
   def last_choice
     puts ""
@@ -61,6 +60,7 @@ class Schedule::Class_Cli
     puts "To return back to the main menuplease press...     *B*"
     puts "To quit the program please press..                 *enter*"
   end
+
   def continue_choice(input)
     input = gets.strip.downcase
     if input == "b"

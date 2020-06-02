@@ -1,5 +1,3 @@
-require 'pry'
-
 
 class Schedule::Movie
 
@@ -16,7 +14,6 @@ class Schedule::Movie
         @cast = cast
         @director = director
         @@all << self
-       # binding.pry
     end
 
     def self.all
@@ -25,16 +22,15 @@ class Schedule::Movie
 
     def self.choice_of_three
         input = gets.strip.to_i
-        if 1.upto(3).include?(input)
-        if input == 1
+        case (input)
+        when  (1)
           Schedule::Class_Cli.first_choice
-        elsif input == 2 
+        when (2)
           Schedule::Class_Cli.second_choice
-        elsif input == 3 
+        when (3)
           Schedule::Class_Cli.third_choice
-        elsif
-          Schedule::Class_Cli.choice_error
-        end
+        else
+          Schedule::Class_Cli.choice_error(input)
         end
     end
 
