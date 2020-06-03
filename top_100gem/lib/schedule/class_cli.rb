@@ -51,9 +51,9 @@ class Schedule::Class_Cli
     puts ""
     puts ""
     puts ""
-    puts "      1)     Top Ranking Titles"
-    puts "      2)     Not the Best/ Not the Worst"
-    puts "      3)     Bottom Ranking Titles"
+    puts "              1)     Top Ranking Titles"
+    puts "              2)     Not the Best/ Not the Worst"
+    puts "              3)     Bottom Ranking Titles"
   end
 
   def self.last_choice
@@ -61,9 +61,10 @@ class Schedule::Class_Cli
     puts "Awesome! Now you just need to enter the <Voted#> that's next to the movie you would like more details on!"
     input = gets.strip.to_i[-1]
     movie = Schedule::Movie.all[input]
-    print_movie_details(movie)
+    print_movie_details(input)
     puts "To return back to the main menuplease press...     *B*"
     puts "To quit the program please press..                 *enter*"
+    #continue_choice
   end
 
   def continue_choice(input)
@@ -87,15 +88,16 @@ class Schedule::Class_Cli
     puts "3)     Bottom Ranking Titles"
   end
 
-  def self.print_movie_details(movie)
+  def self.print_movie_details(m)
+    Schedule::Movie.all[-1]
     puts ""
-    puts "The title you chose is #{movie.title}."
-    puts "#{movie.title} is ranked number ##{movie.ranking} on the ImbD.com website."
-    puts "#{movie.title} is considered a #{movie.genre}."
-    puts "This movie is #{movie.length} mins long."
-    puts "#{movie.title} was directed by #{movie.director}."
-    puts "Memebers of the cast include #{movie.cast}."
-    puts "A brief summary: #{movie.summary}."
-    puts ""
+    puts "The title you chose is at number #{Schedule::Movie.all[m].title}."
+ #   puts "This popular filmis ranked ##{movie.ranking} on the ImbD.com website."
+ #   puts "You'll enjoy this movie if you're into #{movie.genre}."
+ #   puts "This movie is #{movie.length} long."
+ #   puts "This film was directed by #{movie.director}."
+ #   puts "Members of the cast include: #{movie.cast}."
+ #   puts "A brief summary: #{movie.summary}."
+ #   puts ""
   end
 end

@@ -43,15 +43,17 @@ class Schedule::Movie
     def self.create_second_choice
       self.all[32..65].each {|m| puts "#{m.title}      
       ....(#{m.genre})"}
+      Schedule::Class_Cli.last_choice
     end
 
     def self.create_third_choice
       self.all[66..100].each {|m| puts "#{m.title}     
       ....(#{m.genre})"}
+      Schedule::Class_Cli.last_choice
     end
 
 
-    end
+end
 
     
     
