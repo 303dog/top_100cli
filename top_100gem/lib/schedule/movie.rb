@@ -23,7 +23,7 @@ class Schedule::Movie
     def self.choice_of_three
         input = gets.strip.to_i
         case (input)
-        when  (1)
+        when (1)
           Schedule::Class_Cli.first_choice
         when (2)
           Schedule::Class_Cli.second_choice
@@ -35,8 +35,9 @@ class Schedule::Movie
     end
 
     def self.create_first_choice
-      self.all[0..32].each {|m| puts "#{m.title}       
+      self.all[0..32].each {|m| puts "Voted ##{m.title}       
       ....(#{m.genre})"}
+      Schedule::Class_Cli.last_choice
     end
 
     def self.create_second_choice

@@ -23,6 +23,7 @@ class Schedule::Class_Cli
     puts ""
     puts "Top 25 films by rank"
     puts "Please choose a placing and enter the corrosponding number to learn more about that film." 
+    puts ""
     Schedule::Movie.create_first_choice
   end
 
@@ -44,16 +45,20 @@ class Schedule::Class_Cli
 
   def self.choice_error(i)
     puts ""    
-    puts "***          You put (#{i}), which was not an option.               ***" 
+    puts "***          You typed (#{i}), which is not an option.              ***" 
     puts "***                    Let's try this again.                     ***"
-    puts "***       Please pick a ranking from the list provided .         ***"
+    puts "***       Please pick a number from the list provided.           ***"
     puts ""
-    list_places
+    puts ""
+    puts ""
+    puts "      1)     Top Ranking Titles"
+    puts "      2)     Not the Best/ Not the Worst"
+    puts "      3)     Bottom Ranking Titles"
   end
 
-  def last_choice
+  def self.last_choice
     puts ""
-    puts "Please pick a ranking number to seewhich movie placed!"
+    puts "Awesome! Now you just need to enter the <Voted#> that's next to the movie you would like more details on!"
     input = gets.strip.to_i[-1]
     movie = Schedule::Movie.all[input]
     print_movie_details(movie)
@@ -82,9 +87,9 @@ class Schedule::Class_Cli
     puts "3)     Bottom Ranking Titles"
   end
 
-  def print_movie_details
+  def self.print_movie_details(movie)
     puts ""
-     puts "The title you chose is #{movie.title}."
+    puts "The title you chose is #{movie.title}."
     puts "#{movie.title} is ranked number ##{movie.ranking} on the ImbD.com website."
     puts "#{movie.title} is considered a #{movie.genre}."
     puts "This movie is #{movie.length} mins long."
