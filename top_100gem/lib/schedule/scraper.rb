@@ -1,9 +1,7 @@
 require 'pry'
 require 'nokogiri'
 require 'open-uri'
-
 class Schedule::Scraper
-
 
   def get_page
     Nokogiri::HTML(open("https://www.imdb.com/list/ls055592025/"))

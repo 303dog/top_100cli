@@ -17,42 +17,30 @@ class Schedule::Movie
     end
 
     def self.all
-       @@all
+       @@all  
     end 
 
-    def self.choice_of_three
-        input = gets.strip.to_i
-        case (input)
-        when (1)
-          Schedule::Class_Cli.first_choice
-        when (2)
-          Schedule::Class_Cli.second_choice
-        when (3)
-          Schedule::Class_Cli.third_choice
-        else
-          Schedule::Class_Cli.choice_error(input)
-        end
+   # def find_usr_choice(user)
+   #   @@all.find {|m| m.user == user}
+   # end
+
+  
+
+    def self.top_movies
+      self.all[0..32]
     end
 
-    def self.create_first_choice
-      self.all[0..32].each {|m| puts "Voted ##{m.title}       
-      ....(#{m.genre})"}
-      Schedule::Class_Cli.last_choice
+    def self.mid_movies
+      self.all[32..65]
     end
 
-    def self.create_second_choice
-      self.all[32..65].each {|m| puts "#{m.title}      
-      ....(#{m.genre})"}
-      Schedule::Class_Cli.last_choice
+    def self.bottom_movies
+      self.all[66..100]
     end
 
-    def self.create_third_choice
-      self.all[66..100].each {|m| puts "#{m.title}     
-      ....(#{m.genre})"}
-      Schedule::Class_Cli.last_choice
+    def self.movie_choice(m)
+      self.all[m] = Schedule::Class_Cli.print_movie_details(m)
     end
-
-
 end
 
     
