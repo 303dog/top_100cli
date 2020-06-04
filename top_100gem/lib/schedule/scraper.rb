@@ -1,6 +1,3 @@
-require 'pry'
-require 'nokogiri'
-require 'open-uri'
 class Schedule::Scraper
 
   def get_page
@@ -20,16 +17,3 @@ class Schedule::Scraper
     end
   end
 end
-
- 
-#  def make_movie(i)
-#    puts ""
-#    puts "---------------##{i} of the Top 100----------------"
-#    movie = scrape_movies_index[i-=1]
-#    puts ""
-#    Pry::ColorPrinter.pp(movie)
-#  end
-#end
-
-
-

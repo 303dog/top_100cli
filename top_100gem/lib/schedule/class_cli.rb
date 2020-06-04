@@ -1,4 +1,3 @@
-
 class Schedule::Class_Cli
 
   def call
@@ -33,7 +32,7 @@ class Schedule::Class_Cli
     else
       choice_error(input)
     end
-end
+  end
 
   def first_choice
     puts ""
