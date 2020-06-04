@@ -18,13 +18,7 @@ class Schedule::Movie
 
     def self.all
        @@all  
-    end 
-
-   # def find_usr_choice(user)
-   #   @@all.find {|m| m.user == user}
-   # end
-
-  
+    end  
 
     def self.top_movies
       self.all[0..32]

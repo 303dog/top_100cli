@@ -71,24 +71,20 @@ end
     puts "***       Please pick a number from the list provided.           ***"
     puts ""
     puts ""
-    puts ""
-    puts "              1)     Top Ranking Titles"
-    puts "              2)     Not the Best/ Not the Worst"
-    puts "              3)     Bottom Ranking Titles"
+    list_places
   end
 
   def last_choice
     puts ""
     puts "Awesome! Now you just need to enter the <Voted#> that's next to the movie you would like more details on!"
     input = gets.strip.to_i - 1
-   # Schedule::Movie.movie_choice(input)
     print_movie_details(input)
     puts "To return back to the main menu please press...     *B*"
     puts "To quit the program please press..                 *enter*"
-    #continue_choice
+    continue_choice
   end
 
-  def continue_choice(input)
+  def continue_choice
     input = gets.strip.downcase
     if input == "b"
       puts ""
@@ -100,9 +96,8 @@ end
      puts ""
     exit
     end
-  end
-  
-  
+  end 
+
   def list_places
     puts "1)     Top Ranking Titles"
     puts "2)     Not the Best/ Not the Worst"
