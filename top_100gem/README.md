@@ -1,10 +1,17 @@
-# Top100gem
 
-Put your Ruby code in the file `lib/top_100gem`. To run the program, type `bin/run` into your terminal for an interactive prompt.
+# top_100cli
+
+Top_100Cli is a CLI program that uses Nokogiri & open-uri to scrape Imbd.com for the top 100 films of all time. By prompting the user with specific menus to help navigate them through the process, the user is able to not only see the complete list of 100 movies but also select the movie of their choice to have the program gather and produce detailed data on that chosen title.
+
+
+To run the program, type `bin/run` into your terminal for an interactive prompt.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Please create a fork on the repo page and clone into your local editor using https://github.com/303dog/top_100cli.git. 
+
+
+# Top_100gem
 
 ```ruby
 gem 'top_100gem'
@@ -16,11 +23,11 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install top_100gem
+    $ gem install top_100
 
 ## Usage
 
-TODO: Write usage instructions here
+After you have installed the gem, the program is ready to go!  Please type bin/run into the terminal and you will be given an interactive prompt.
 
 ## Development
 
@@ -30,7 +37,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/top_100gem. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/303dog/top_100cli.git. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 

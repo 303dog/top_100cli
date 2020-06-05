@@ -37,14 +37,14 @@ class Schedule::Class_Cli
   def first_choice
     puts ""
     puts "Top 25 films by rank"
-    puts "Please choose a placing and enter the corrosponding number to learn more about that film." 
+    puts "Please choose a placing and enter the corresponding number to learn more about that film." 
     puts ""
     print_choices(Schedule::Movie.top_movies)
   end
 
   def second_choice
     puts ""
-    puts "These are not the best movies but they're not the worst"
+    puts "These are not the best movies, but they're not the worst"
     puts "Please choose a placing and enter the corrosponding number to learn more about that film." 
     puts ""
     print_choices(Schedule::Movie.mid_movies)
@@ -53,7 +53,7 @@ class Schedule::Class_Cli
   def third_choice        
     puts ""
     puts "These are the worst of the Best!"
-    puts "Please choose a placing and enter the corrosponding number to learn more about that film."   
+    puts "Please choose a placing and enter the corresponding number to learn more about that film."   
     puts ""
     print_choices(Schedule::Movie.bottom_movies)
   end
@@ -75,7 +75,7 @@ class Schedule::Class_Cli
 
   def last_choice
     puts ""
-    puts "Awesome! Now you just need to enter the <Voted#> that's next to the movie you would like more details on!"
+    puts "Awesome! Now you just need to enter the <Voted..#> that's next to the movie you would like more details on!"
     input = gets.strip.to_i - 1
     print_movie_details(input)
     puts "To return back to the main menu please press...     *B*"
@@ -99,20 +99,22 @@ class Schedule::Class_Cli
 
   def list_places
     puts "1)     Top Ranking Titles"
-    puts "2)     Not the Best/ Not the Worst"
+    puts "2)     Not the Best/Not the Worst"
     puts "3)     Bottom Ranking Titles"
   end
 
   def print_movie_details(index)
     movie = Schedule::Movie.all[index]
     puts ""
-    puts "The title you chose is at number #{movie.title}."
-    puts "This popular filmis ranked ##{movie.ranking} on the ImbD.com website."
+    puts "You picked number #{movie.title}."
+    puts "This popular film is a ##{movie.ranking} on the ImbD.com website."
     puts "You'll enjoy this movie if you're into #{movie.genre}."
-    puts "This movie is #{movie.length} long."
-    puts "This film was directed by #{movie.director}."
+    puts "Run_time is #{movie.length} long."
+    puts "It was put together by #{movie.director}."
     puts "Members of the cast include: #{movie.cast}."
-    puts "A brief summary: #{movie.summary}."
+    puts "Quick summary: #{movie.summary}."
+    puts ""
     puts ""
   end
+
 end
