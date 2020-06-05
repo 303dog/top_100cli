@@ -1,20 +1,21 @@
 
 # top_100cli
 
-Top_100Cli is a CLI program that uses Nokogiri & open-uri to scrape Imbd.com for the top 100 films of all time. By prompting the user with specific menus to help navigate them through the process, the user is able to not only see the complete list of 100 movies but also select the movie of their choice to have the program gather and produce detailed data on that chosen title.
+Top_100Cli is a program that uses Nokogiri & open-uri to scrape Imbd.com for the top 100 films of all time. By prompting the user with specific menus to help navigate them through the process, the user is able to not only see the complete list of 100 movies but also select the movie of their choice to have the program gather and produce detailed data on that chosen title through the command line.
 
 
-To run the program, type `bin/run` into your terminal for an interactive prompt.
 
 ## Installation
 
 Please create a fork on the repo page and clone into your local editor using https://github.com/303dog/top_100cli.git. 
 
 
+To run the program, type `bin/run` into your terminal for an interactive prompt.
+
 # Top_100gem
 
 ```ruby
-gem 'top_100gem'
+gem 'top_100gem'  #=>top_100
 ```
 
 And then execute:
